@@ -1,0 +1,5 @@
+requirement,environment,algorithm,avg_revenue,std_revenue,avg_regret,avg_rounds,avg_budget_used,timestamp
+requirement_4,Stochastic Multi,Combinatorial UCB,2364.2,24.477744994177876,0.0,655.3,0.0,20250628_183335
+requirement_4,Stochastic Multi,Primal-Dual Multi,2603.7,253.6576630027171,0.0,1000.0,62.5,20250628_183335
+requirement_4,Non-Stationary Multi,Combinatorial UCB,2290.1,39.30763284656048,0.0,374.9,-0.1,20250628_183335
+requirement_4,Non-Stationary Multi,Primal-Dual Multi,2674.5,64.30435444042651,0.0,452.8,-0.3,20250628_183335

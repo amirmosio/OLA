@@ -1,0 +1,11 @@
+requirement,environment,algorithm,run_number,total_revenue,rounds_completed,final_budget,budget_used,avg_revenue_per_round,timestamp
+requirement_2,Stochastic Multi Product,Combinatorial UCB,1,2335.0,676,0.0,500.0,3.4541420118343193,20250628_183313
+requirement_2,Stochastic Multi Product,Combinatorial UCB,2,2391.0,647,0.0,500.0,3.6955177743431222,20250628_183313
+requirement_2,Stochastic Multi Product,Combinatorial UCB,3,2394.0,683,0.0,500.0,3.505124450951684,20250628_183313
+requirement_2,Stochastic Multi Product,Combinatorial UCB,4,2378.0,673,0.0,500.0,3.5334323922734026,20250628_183313
+requirement_2,Stochastic Multi Product,Combinatorial UCB,5,2386.0,700,0.0,500.0,3.4085714285714284,20250628_183313
+requirement_2,Stochastic Multi Product,Combinatorial UCB,6,2364.0,657,0.0,500.0,3.598173515981735,20250628_183313
+requirement_2,Stochastic Multi Product,Combinatorial UCB,7,2349.0,660,0.0,500.0,3.559090909090909,20250628_183313
+requirement_2,Stochastic Multi Product,Combinatorial UCB,8,2313.0,523,0.0,500.0,4.422562141491396,20250628_183313
+requirement_2,Stochastic Multi Product,Combinatorial UCB,9,2368.0,697,0.0,500.0,3.3974175035868006,20250628_183313
+requirement_2,Stochastic Multi Product,Combinatorial UCB,10,2364.0,637,0.0,500.0,3.7111459968602825,20250628_183313

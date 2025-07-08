@@ -1,0 +1,2 @@
+requirement,environment,algorithm,avg_revenue,std_revenue,avg_regret,avg_rounds,avg_budget_used,timestamp
+requirement_2,Stochastic Multi Product,Combinatorial UCB,2364.2,24.477744994177876,0.0,655.3,0.0,20250628_183313

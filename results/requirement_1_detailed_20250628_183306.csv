@@ -1,0 +1,21 @@
+requirement,environment,algorithm,run_number,total_revenue,rounds_completed,final_budget,budget_used,avg_revenue_per_round,timestamp
+requirement_1,Stochastic Single Product,UCB1 (No Constraint),1,1921.0,726,0.0,500.0,2.6460055096418733,20250628_183306
+requirement_1,Stochastic Single Product,UCB1 (No Constraint),2,1600.0,646,0.0,500.0,2.476780185758514,20250628_183306
+requirement_1,Stochastic Single Product,UCB1 (No Constraint),3,1853.0,679,0.0,500.0,2.7290132547864507,20250628_183306
+requirement_1,Stochastic Single Product,UCB1 (No Constraint),4,1986.0,734,0.0,500.0,2.7057220708446867,20250628_183306
+requirement_1,Stochastic Single Product,UCB1 (No Constraint),5,1738.0,694,0.0,500.0,2.5043227665706054,20250628_183306
+requirement_1,Stochastic Single Product,UCB1 (No Constraint),6,1585.0,698,0.0,500.0,2.2707736389684814,20250628_183306
+requirement_1,Stochastic Single Product,UCB1 (No Constraint),7,1967.0,754,0.0,500.0,2.6087533156498672,20250628_183306
+requirement_1,Stochastic Single Product,UCB1 (No Constraint),8,1820.0,687,0.0,500.0,2.6491994177583695,20250628_183306
+requirement_1,Stochastic Single Product,UCB1 (No Constraint),9,1851.0,722,0.0,500.0,2.563711911357341,20250628_183306
+requirement_1,Stochastic Single Product,UCB1 (No Constraint),10,1852.0,747,0.0,500.0,2.4792503346720216,20250628_183306
+requirement_1,Stochastic Single Product,UCB with Inventory,1,2008.0,929,0.0,500.0,2.161463939720129,20250628_183306
+requirement_1,Stochastic Single Product,UCB with Inventory,2,2035.0,970,0.0,500.0,2.097938144329897,20250628_183306
+requirement_1,Stochastic Single Product,UCB with Inventory,3,2060.0,989,0.0,500.0,2.082912032355915,20250628_183306
+requirement_1,Stochastic Single Product,UCB with Inventory,4,2032.0,994,0.0,500.0,2.0442655935613683,20250628_183306
+requirement_1,Stochastic Single Product,UCB with Inventory,5,2041.0,982,0.0,500.0,2.0784114052953155,20250628_183306
+requirement_1,Stochastic Single Product,UCB with Inventory,6,2028.0,976,0.0,500.0,2.0778688524590163,20250628_183306
+requirement_1,Stochastic Single Product,UCB with Inventory,7,2094.0,946,0.0,500.0,2.2135306553911205,20250628_183306
+requirement_1,Stochastic Single Product,UCB with Inventory,8,2035.0,976,0.0,500.0,2.0850409836065573,20250628_183306
+requirement_1,Stochastic Single Product,UCB with Inventory,9,2050.0,976,0.0,500.0,2.1004098360655736,20250628_183306
+requirement_1,Stochastic Single Product,UCB with Inventory,10,2066.0,958,0.0,500.0,2.1565762004175366,20250628_183306

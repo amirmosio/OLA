@@ -1,0 +1,6 @@
+ - check the difference between slightly and non-stationary environment
+ - In the simulation file, ucb1 algorithm, maybe instead of small t we should use capital T for the upper bound
+ - check the algorithm of UCBWithInventoryConstraint in select_prices method. Make sure it is correct
+    consider checking the optimization algorithm for calculating rho
+    
+
