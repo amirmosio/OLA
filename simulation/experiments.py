@@ -5,7 +5,7 @@ from typing import Dict, Tuple
 from environments import (
     StochasticSingleProductEnvironment,
     StochasticMultiProductEnvironment,
-    NonStationaryEnvironment,
+    HighlyNonStationaryEnvironment,
     SlightlyNonStationaryEnvironment
 )
 from algorithms import (
@@ -79,18 +79,10 @@ def create_requirement_3_experiment():
     )
     
     # Create highly non-stationary environment
-    change_points = [200, 400, 600, 800]
-    distributions = [
-        {'mean': 3.0, 'std': 1.0},
-        {'mean': 7.0, 'std': 1.5},
-        {'mean': 4.0, 'std': 2.0},
-        {'mean': 6.0, 'std': 1.2},
-        {'mean': 5.0, 'std': 1.8}
-    ]
     
-    non_stationary_env = NonStationaryEnvironment(
+    non_stationary_env = HighlyNonStationaryEnvironment(
         n_products=1, prices=prices, T=T, B=B,
-        change_points=change_points, distributions=distributions
+        base_mean=5.0, base_std=2.0, change_rate=0.1, noise_scale=1.5
     )
     
     # Create algorithms
@@ -101,7 +93,7 @@ def create_requirement_3_experiment():
     
     return {
         'Stochastic': stochastic_env,
-        'Non-Stationary': non_stationary_env
+        'Highly Non-Stationary': non_stationary_env
     }, algorithms
 
 def create_requirement_4_experiment():
@@ -124,21 +116,10 @@ def create_requirement_4_experiment():
     )
     
     # Create non-stationary environment
-    change_points = [250, 500, 750]
-    distributions = [
-        {'mean': np.array([3.0, 4.0, 5.0]), 
-         'cov': np.array([[1.5, 0.2, 0.1], [0.2, 1.5, 0.3], [0.1, 0.3, 1.5]])},
-        {'mean': np.array([6.0, 7.0, 8.0]), 
-         'cov': np.array([[2.0, 0.4, 0.2], [0.4, 2.0, 0.5], [0.2, 0.5, 2.0]])},
-        {'mean': np.array([4.5, 5.5, 6.5]), 
-         'cov': np.array([[1.8, 0.3, 0.15], [0.3, 1.8, 0.4], [0.15, 0.4, 1.8]])},
-        {'mean': np.array([5.0, 6.0, 7.0]), 
-         'cov': np.array([[2.2, 0.5, 0.25], [0.5, 2.2, 0.6], [0.25, 0.6, 2.2]])}
-    ]
     
-    non_stationary_env = NonStationaryEnvironment(
+    non_stationary_env = HighlyNonStationaryEnvironment(
         n_products=n_products, prices=prices, T=T, B=B,
-        change_points=change_points, distributions=distributions
+        base_mean=5.0, base_std=2.0, change_rate=0.08, noise_scale=1.2
     )
     
     # Create algorithms
@@ -149,7 +130,7 @@ def create_requirement_4_experiment():
     
     return {
         'Stochastic Multi': stochastic_env,
-        'Non-Stationary Multi': non_stationary_env
+        'Highly Non-Stationary Multi': non_stationary_env
     }, algorithms
 
 def create_requirement_5_experiment():

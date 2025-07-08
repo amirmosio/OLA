@@ -209,48 +209,42 @@ def run_all_requirements(n_runs=5, save_plots=False, save_csv=False):
     
     all_results = {}
     
-    try:
-        all_results['req1'] = run_requirement_1(n_runs, save_plots, save_csv)
-        all_results['req2'] = run_requirement_2(n_runs, save_plots, save_csv)
-        all_results['req3'] = run_requirement_3(n_runs, save_plots, save_csv)
-        all_results['req4'] = run_requirement_4(n_runs, save_plots, save_csv)
-        all_results['req5'] = run_requirement_5(n_runs, save_plots, save_csv)
-        
-        print("\n" + "="*80)
-        print("ALL REQUIREMENTS COMPLETED SUCCESSFULLY!")
-        print("="*80)
-        
-        # Summary of all requirements
-        print("\nCOMPLETE PROJECT SUMMARY:")
-        print("-" * 40)
-        
-        req_names = [
-            "Single Product Stochastic",
-            "Multiple Products Stochastic", 
-            "Best-of-Both-Worlds Single",
-            "Best-of-Both-Worlds Multi",
-            "Slightly Non-Stationary"
-        ]
-        
-        for i, (req_key, req_name) in enumerate(zip(all_results.keys(), req_names), 1):
-            print(f"\n{i}. {req_name}:")
-            req_results = all_results[req_key]
-            for env_name, env_results in req_results.items():
-                best_alg = max(env_results.items(), key=lambda x: x[1]['avg_revenue'])
-                print(f"   Best on {env_name}: {best_alg[0]} ({best_alg[1]['avg_revenue']:.1f} revenue)")
-        
-        if save_plots:
-            print(f"\nAll plots saved to 'results/requirement_X/plots/' directories")
-        
-        if save_csv:
-            print(f"\nAll numerical results saved to 'results/requirement_X/data/' directories")
-        
-    except Exception as e:
-        print(f"\nError occurred: {str(e)}")
-        print("Please check the error and try again.")
-        return None
+
+    all_results['req1'] = run_requirement_1(n_runs, save_plots, save_csv)
+    all_results['req2'] = run_requirement_2(n_runs, save_plots, save_csv)
+    all_results['req3'] = run_requirement_3(n_runs, save_plots, save_csv)
+    all_results['req4'] = run_requirement_4(n_runs, save_plots, save_csv)
+    all_results['req5'] = run_requirement_5(n_runs, save_plots, save_csv)
     
-    return all_results
+    print("\n" + "="*80)
+    print("ALL REQUIREMENTS COMPLETED SUCCESSFULLY!")
+    print("="*80)
+    
+    # Summary of all requirements
+    print("\nCOMPLETE PROJECT SUMMARY:")
+    print("-" * 40)
+    
+    req_names = [
+        "Single Product Stochastic",
+        "Multiple Products Stochastic", 
+        "Best-of-Both-Worlds Single",
+        "Best-of-Both-Worlds Multi",
+        "Slightly Non-Stationary"
+    ]
+    
+    for i, (req_key, req_name) in enumerate(zip(all_results.keys(), req_names), 1):
+        print(f"\n{i}. {req_name}:")
+        req_results = all_results[req_key]
+        for env_name, env_results in req_results.items():
+            best_alg = max(env_results.items(), key=lambda x: x[1]['avg_revenue'])
+            print(f"   Best on {env_name}: {best_alg[0]} ({best_alg[1]['avg_revenue']:.1f} revenue)")
+    
+    if save_plots:
+        print(f"\nAll plots saved to 'results/requirement_X/plots/' directories")
+    
+    if save_csv:
+        print(f"\nAll numerical results saved to 'results/requirement_X/data/' directories")
+        
 
 def main():
     """Main entry point"""

@@ -90,3 +90,5 @@ logs/
 # Temporary files
 *.tmp
 *.temp 
+
+results/

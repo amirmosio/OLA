@@ -226,22 +226,45 @@ class PricingSimulation:
         plt.close()
         plot_files.append(plot1_filename)
         
-        # Plot 2: Revenue over time for first environment
-        fig2, ax2 = plt.subplots(figsize=(10, 6))
-        
-        first_env = env_names[0]
-        for alg_name in alg_names:
-            # Get first run's revenue trajectory
-            first_run = results[first_env][alg_name]['all_runs'][0]
-            revenues = first_run['revenues']
-            cumulative = np.cumsum(revenues)
-            ax2.plot(cumulative, label=alg_name, alpha=0.8)
-        
-        ax2.set_xlabel('Round')
-        ax2.set_ylabel('Cumulative Revenue')
-        ax2.set_title(f'Revenue Growth Over Time - {first_env}')
-        ax2.legend()
-        ax2.grid(True, alpha=0.3)
+        # Plot 2: Revenue over time for both environments
+        if len(env_names) == 1:
+            # Single environment - show in one plot
+            fig2, ax2 = plt.subplots(figsize=(12, 6))
+            
+            env_name = env_names[0]
+            for alg_name in alg_names:
+                # Get first run's revenue trajectory
+                first_run = results[env_name][alg_name]['all_runs'][0]
+                revenues = first_run['revenues']
+                cumulative = np.cumsum(revenues)
+                ax2.plot(cumulative, label=alg_name, alpha=0.8, linewidth=2)
+            
+            ax2.set_xlabel('Round')
+            ax2.set_ylabel('Cumulative Revenue')
+            ax2.set_title(f'Revenue Growth Over Time - {env_name}')
+            ax2.legend()
+            ax2.grid(True, alpha=0.3)
+        else:
+            # Multiple environments - show in subplots
+            fig2, axes = plt.subplots(1, len(env_names), figsize=(6*len(env_names), 6))
+            if len(env_names) == 2:
+                axes = [axes[0], axes[1]]  # Ensure it's always a list
+            
+            for env_idx, env_name in enumerate(env_names):
+                ax = axes[env_idx]
+                
+                for alg_name in alg_names:
+                    # Get first run's revenue trajectory
+                    first_run = results[env_name][alg_name]['all_runs'][0]
+                    revenues = first_run['revenues']
+                    cumulative = np.cumsum(revenues)
+                    ax.plot(cumulative, label=alg_name, alpha=0.8, linewidth=2)
+                
+                ax.set_xlabel('Round')
+                ax.set_ylabel('Cumulative Revenue')
+                ax.set_title(f'Revenue Growth - {env_name}')
+                ax.legend()
+                ax.grid(True, alpha=0.3)
         
         plt.tight_layout()
         plot2_filename = os.path.join(dirs['plots_dir'], f"requirement_{requirement_num}_revenue_growth.png")
