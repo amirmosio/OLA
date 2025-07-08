@@ -1,5 +1,0 @@
-requirement,environment,algorithm,avg_revenue,std_revenue,avg_regret,avg_rounds,avg_budget_used,timestamp
-requirement_3,Stochastic,UCB with Inventory,2043.2,21.669333169250965,0.0,977.6,0.0,20250628_183321
-requirement_3,Stochastic,Primal-Dual,1914.8,287.64033096907673,0.0,827.8,32.0,20250628_183321
-requirement_3,Non-Stationary,UCB with Inventory,2089.3,20.688402548287772,0.0,994.4,0.0,20250628_183321
-requirement_3,Non-Stationary,Primal-Dual,1145.8,265.87207450200555,0.0,652.3,0.0,20250628_183321

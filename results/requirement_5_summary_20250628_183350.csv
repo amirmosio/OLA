@@ -1,3 +1,0 @@
-requirement,environment,algorithm,avg_revenue,std_revenue,avg_regret,avg_rounds,avg_budget_used,timestamp
-requirement_5,Slightly Non-Stationary,Combinatorial UCB (Sliding Window),2039.8,72.72386128362547,0.0,299.2,-0.2,20250628_183350
-requirement_5,Slightly Non-Stationary,Primal-Dual Multi,2679.0,244.7133016409202,0.0,997.7,90.9,20250628_183350

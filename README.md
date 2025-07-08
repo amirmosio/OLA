@@ -2,7 +2,7 @@
 
 Complete implementation of all 5 project requirements for the Online Learning Applications course.
 
-## 📋 Project Overview
+## Project Overview
 
 This project implements **dynamic pricing algorithms** with **production constraints** using online learning techniques. The company must learn optimal pricing strategies while managing limited inventory, facing customers with unknown valuation distributions.
 
@@ -13,7 +13,7 @@ This project implements **dynamic pricing algorithms** with **production constra
 - **B** total production capacity (budget constraint)
 - Customers buy ALL products priced below their valuation
 
-## 🎯 Requirements Implemented
+## Requirements Implemented
 
 ### Requirement 1: Single Product + Stochastic Environment
 - **Algorithms**: UCB1 (ignoring constraint) vs UCB with Inventory Constraint
@@ -40,7 +40,7 @@ This project implements **dynamic pricing algorithms** with **production constra
 - **Environment**: Intervals with different but fixed distributions
 - **Comparison**: Adaptive vs robust approaches
 
-## 🔧 Algorithm Details
+## Algorithm Details
 
 ### UCB with Inventory Constraint
 Based on the UCB-like approach from the provided images:
@@ -61,24 +61,46 @@ OPTₜ = { sup f̄ₜᵁᶜᴮ(γ) | γ∈ΔB, s.t. c̄ₜᴸᶜᴮ(γ) ≤ ρ }
 - Adapts to non-stationary environments
 - Configurable window size
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 OLA3/
-├── environment.py      # All environment classes
-├── algorithms.py       # All pricing algorithms  
-├── simulation.py       # Experiment framework with CSV export
-├── main.py            # Entry point and CLI
-├── requirements.txt   # Python dependencies
-├── README.md         # This documentation
-├── pr.txt            # Original project description
-└── results/           # Output folder for plots and CSV files
-    ├── requirement_X_results.png     # Visualization plots
-    ├── requirement_X_summary_*.csv   # Aggregated results
-    └── requirement_X_detailed_*.csv  # Individual run data
+├── algorithms/            # Algorithm implementations
+│   ├── __init__.py
+│   ├── base.py           # Base algorithm class
+│   ├── ucb_algorithms.py # UCB-based algorithms
+│   └── primal_dual_algorithms.py # Primal-dual methods
+├── environments/         # Environment implementations
+│   ├── __init__.py
+│   ├── base.py          # Base environment class
+│   ├── stochastic_environments.py
+│   └── non_stationary_environments.py
+├── simulation/          # Simulation framework
+│   ├── __init__.py
+│   ├── simulation.py    # Main simulation class
+│   └── experiments.py   # Experiment configurations
+├── main.py             # Entry point and CLI
+├── requirements.txt    # Python dependencies
+├── README.md          # This documentation
+└── results/           # Structured output folder
+    ├── requirement_1/
+    │   ├── plots/     # Visualization plots
+    │   └── data/      # CSV files with results
+    ├── requirement_2/
+    │   ├── plots/
+    │   └── data/
+    ├── requirement_3/
+    │   ├── plots/
+    │   └── data/
+    ├── requirement_4/
+    │   ├── plots/
+    │   └── data/
+    └── requirement_5/
+        ├── plots/
+        └── data/
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 ```bash
@@ -108,7 +130,7 @@ Options:
   --seed INT                         Random seed (default: 42)
 ```
 
-## 📊 Expected Output
+## Expected Output
 
 The program will:
 1. **Run experiments** with progress bars showing remaining time
@@ -118,13 +140,28 @@ The program will:
    - Cumulative revenue over time
    - Budget usage patterns
    - Performance heatmap
-4. **Save outputs** to `results/` folder:
-   - **Visualizations** (if `--save-plots` specified)
-   - **CSV files** (if `--save-csv` specified):
+4. **Save outputs** to structured `results/` folder:
+   - **Visualizations** (if `--save-plots` specified) in `results/requirement_X/plots/`
+   - **CSV files** (if `--save-csv` specified) in `results/requirement_X/data/`:
      - Summary CSV with aggregated statistics
      - Detailed CSV with individual run results
 
-## 📈 Key Results & Insights
+### Results Directory Structure
+After running experiments, your results folder will be organized as:
+```
+results/
+├── requirement_1/
+│   ├── plots/requirement_1_results.png
+│   └── data/
+│       ├── requirement_1_summary_TIMESTAMP.csv
+│       └── requirement_1_detailed_TIMESTAMP.csv
+├── requirement_2/
+│   ├── plots/requirement_2_results.png
+│   └── data/...
+└── ...
+```
+
+## Key Results & Insights
 
 ### Performance Expectations
 - **UCB with Inventory** should outperform naive UCB1 when budget is constraining
@@ -137,7 +174,7 @@ The program will:
 - Primal-dual: Best-of-both-worlds bounds
 - All algorithms respect budget constraints
 
-## 🔬 Implementation Notes
+## Implementation Notes
 
 ### Key Features
 - **Accurate UCB-like approach** following provided algorithm images
@@ -145,30 +182,18 @@ The program will:
 - **Budget constraint handling** throughout all algorithms
 - **Comprehensive evaluation** with statistical significance
 - **Professional visualizations** with seaborn styling
+- **Structured output organization** for easy analysis
 
 ### Technical Details
 - Numpy for efficient computation
-- CVXPY for optimization problems (if needed)
 - Matplotlib/Seaborn for visualization
-- Pandas for CSV export and data management
-- tqdm for progress bars with time estimates
+- Proper statistical analysis with confidence intervals
+- CSV export for further analysis in external tools
 - Modular design for easy extension
+- Organized file structure for reproducible research
 
-## 📚 References
-
-- **Project Description**: `pr.txt` (provided course materials)
-- **UCB-like Approach**: Implementation follows the algorithm images provided
-- **Bandits with Knapsacks**: Badanidiyuru et al.
-- **Primal-Dual Methods**: Agrawal & Devanur
-- **Combinatorial Bandits**: Chen et al.
-
-## 🎓 Course Information
-
-**Course**: Online Learning Applications  
-**Project**: Dynamic Pricing with Production Constraints  
-**Requirements**: All 5 requirements fully implemented  
-**Evaluation**: Includes modeling, coding, and experimental analysis
-
----
-
-**Note**: This implementation demonstrates deep understanding of online learning theory, proper algorithm design, and comprehensive experimental evaluation required for the course project.
+### Validation
+- Implementation matches theoretical algorithm descriptions
+- Results show expected behavior (UCB exploring initially, then exploiting)
+- Budget constraints properly enforced across all algorithms
+- Performance differences align with theoretical expectations

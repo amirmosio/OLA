@@ -1,3 +1,0 @@
-requirement,environment,algorithm,avg_revenue,std_revenue,avg_regret,avg_rounds,avg_budget_used,timestamp
-requirement_1,Stochastic Single Product,UCB1 (No Constraint),1817.3,131.42149748043508,0.0,708.7,0.0,20250628_183306
-requirement_1,Stochastic Single Product,UCB with Inventory,2044.9,22.660317738284252,0.0,969.6,0.0,20250628_183306

@@ -33,190 +33,195 @@ def print_project_header():
     print("5. Slightly Non-Stationary: Sliding Window vs Primal-Dual")
     print("="*80)
 
-def run_requirement_1(n_runs=5, save_plots=False, save_csv=False):
+def run_requirement_1(n_runs=5, save_plots=False, save_csv=False, seed=42):
     """Run Requirement 1: Single product stochastic"""
-    print("\n📊 REQUIREMENT 1: Single Product Stochastic Environment")
+    print("\nREQUIREMENT 1: Single Product Stochastic Environment")
     print("-" * 60)
     
-    simulation = PricingSimulation(seed=42)
-    envs, algs = create_requirement_1_experiment()
+    simulation = PricingSimulation(seed=seed)
+    envs, algs = create_requirement_1_experiment(env_seed=seed + 1, alg_seed=seed + 100)
     
-    print("🔧 Algorithms being tested:")
+    print("Algorithms being tested:")
     for alg_name in algs.keys():
         print(f"   • {alg_name}")
     
-    print(f"🎯 Running {n_runs} experiments...")
+    print(f"Running {n_runs} experiments...")
     results = simulation.run_comparison(envs, algs, n_runs=n_runs)
     
     # Print summary
-    print("\n📈 RESULTS SUMMARY:")
+    print("\nRESULTS SUMMARY:")
     for env_name, env_results in results.items():
         print(f"\n{env_name}:")
         for alg_name, alg_results in env_results.items():
             print(f"  {alg_name:25}: Revenue = {alg_results['avg_revenue']:.1f} ± {alg_results['std_revenue']:.1f}")
     
     if save_plots:
-        simulation.plot_results(results, 'requirement_1_results.png')
-        print("📊 Plots saved to 'results/requirement_1_results.png'")
+        simulation.plot_results(results, 1)
+        print("Plots saved to 'results/requirement_1/plots/'")
     
     if save_csv:
-        simulation.save_results_to_csv(results, 'requirement_1')
+        simulation.save_results_to_csv(results, 1)
+        print("Data saved to 'results/requirement_1/data/'")
     
     return results
 
-def run_requirement_2(n_runs=5, save_plots=False, save_csv=False):
+def run_requirement_2(n_runs=5, save_plots=False, save_csv=False, seed=42):
     """Run Requirement 2: Multiple products stochastic"""
-    print("\n📊 REQUIREMENT 2: Multiple Products Stochastic Environment")
+    print("\nREQUIREMENT 2: Multiple Products Stochastic Environment")
     print("-" * 60)
     
-    simulation = PricingSimulation(seed=42)
-    envs, algs = create_requirement_2_experiment()
+    simulation = PricingSimulation(seed=seed)
+    envs, algs = create_requirement_2_experiment(env_seed=seed + 2, alg_seed=seed + 200)
     
-    print("🔧 Algorithms being tested:")
+    print("Algorithms being tested:")
     for alg_name in algs.keys():
         print(f"   • {alg_name}")
     
-    print(f"🎯 Running {n_runs} experiments...")
+    print(f"Running {n_runs} experiments...")
     results = simulation.run_comparison(envs, algs, n_runs=n_runs)
     
     # Print summary
-    print("\n📈 RESULTS SUMMARY:")
+    print("\nRESULTS SUMMARY:")
     for env_name, env_results in results.items():
         print(f"\n{env_name}:")
         for alg_name, alg_results in env_results.items():
             print(f"  {alg_name:25}: Revenue = {alg_results['avg_revenue']:.1f} ± {alg_results['std_revenue']:.1f}")
     
     if save_plots:
-        simulation.plot_results(results, 'requirement_2_results.png')
-        print("📊 Plots saved to 'results/requirement_2_results.png'")
+        simulation.plot_results(results, 2)
+        print("Plots saved to 'results/requirement_2/plots/'")
     
     if save_csv:
-        simulation.save_results_to_csv(results, 'requirement_2')
+        simulation.save_results_to_csv(results, 2)
+        print("Data saved to 'results/requirement_2/data/'")
     
     return results
 
-def run_requirement_3(n_runs=5, save_plots=False, save_csv=False):
+def run_requirement_3(n_runs=5, save_plots=False, save_csv=False, seed=42):
     """Run Requirement 3: Best-of-both-worlds single product"""
-    print("\n📊 REQUIREMENT 3: Best-of-Both-Worlds Single Product")
+    print("\nREQUIREMENT 3: Best-of-Both-Worlds Single Product")
     print("-" * 60)
     
-    simulation = PricingSimulation(seed=42)
-    envs, algs = create_requirement_3_experiment()
+    simulation = PricingSimulation(seed=seed)
+    envs, algs = create_requirement_3_experiment(env_seed=seed + 3, alg_seed=seed + 300)
     
-    print("🔧 Algorithms being tested:")
+    print("Algorithms being tested:")
     for alg_name in algs.keys():
         print(f"   • {alg_name}")
     
-    print("🌍 Environments:")
+    print("Environments:")
     for env_name in envs.keys():
         print(f"   • {env_name}")
     
-    print(f"🎯 Running {n_runs} experiments...")
+    print(f"Running {n_runs} experiments...")
     results = simulation.run_comparison(envs, algs, n_runs=n_runs)
     
     # Print summary
-    print("\n📈 RESULTS SUMMARY:")
+    print("\nRESULTS SUMMARY:")
     for env_name, env_results in results.items():
         print(f"\n{env_name}:")
         for alg_name, alg_results in env_results.items():
             print(f"  {alg_name:25}: Revenue = {alg_results['avg_revenue']:.1f} ± {alg_results['std_revenue']:.1f}")
     
     if save_plots:
-        simulation.plot_results(results, 'requirement_3_results.png')
-        print("📊 Plots saved to 'results/requirement_3_results.png'")
+        simulation.plot_results(results, 3)
+        print("Plots saved to 'results/requirement_3/plots/'")
     
     if save_csv:
-        simulation.save_results_to_csv(results, 'requirement_3')
+        simulation.save_results_to_csv(results, 3)
+        print("Data saved to 'results/requirement_3/data/'")
     
     return results
 
-def run_requirement_4(n_runs=5, save_plots=False, save_csv=False):
+def run_requirement_4(n_runs=5, save_plots=False, save_csv=False, seed=42):
     """Run Requirement 4: Best-of-both-worlds multiple products"""
-    print("\n📊 REQUIREMENT 4: Best-of-Both-Worlds Multiple Products")
+    print("\nREQUIREMENT 4: Best-of-Both-Worlds Multiple Products")
     print("-" * 60)
     
-    simulation = PricingSimulation(seed=42)
-    envs, algs = create_requirement_4_experiment()
+    simulation = PricingSimulation(seed=seed)
+    envs, algs = create_requirement_4_experiment(env_seed=seed + 4, alg_seed=seed + 400)
     
-    print("🔧 Algorithms being tested:")
+    print("Algorithms being tested:")
     for alg_name in algs.keys():
         print(f"   • {alg_name}")
     
-    print("🌍 Environments:")
+    print("Environments:")
     for env_name in envs.keys():
         print(f"   • {env_name}")
     
-    print(f"🎯 Running {n_runs} experiments...")
+    print(f"Running {n_runs} experiments...")
     results = simulation.run_comparison(envs, algs, n_runs=n_runs)
     
     # Print summary
-    print("\n📈 RESULTS SUMMARY:")
+    print("\nRESULTS SUMMARY:")
     for env_name, env_results in results.items():
         print(f"\n{env_name}:")
         for alg_name, alg_results in env_results.items():
             print(f"  {alg_name:25}: Revenue = {alg_results['avg_revenue']:.1f} ± {alg_results['std_revenue']:.1f}")
     
     if save_plots:
-        simulation.plot_results(results, 'requirement_4_results.png')
-        print("📊 Plots saved to 'results/requirement_4_results.png'")
+        simulation.plot_results(results, 4)
+        print("Plots saved to 'results/requirement_4/plots/'")
     
     if save_csv:
-        simulation.save_results_to_csv(results, 'requirement_4')
+        simulation.save_results_to_csv(results, 4)
+        print("Data saved to 'results/requirement_4/data/'")
     
     return results
 
-def run_requirement_5(n_runs=5, save_plots=False, save_csv=False):
+def run_requirement_5(n_runs=5, save_plots=False, save_csv=False, seed=42):
     """Run Requirement 5: Slightly non-stationary with sliding window"""
-    print("\n📊 REQUIREMENT 5: Slightly Non-Stationary with Sliding Window")
+    print("\nREQUIREMENT 5: Slightly Non-Stationary with Sliding Window")
     print("-" * 60)
     
-    simulation = PricingSimulation(seed=42)
-    envs, algs = create_requirement_5_experiment()
+    simulation = PricingSimulation(seed=seed)
+    envs, algs = create_requirement_5_experiment(env_seed=seed + 5, alg_seed=seed + 500)
     
-    print("🔧 Algorithms being tested:")
+    print("Algorithms being tested:")
     for alg_name in algs.keys():
         print(f"   • {alg_name}")
     
-    print("🌍 Environment: Slightly Non-Stationary (intervals with different distributions)")
+    print("Environment: Slightly Non-Stationary (intervals with different distributions)")
     
-    print(f"🎯 Running {n_runs} experiments...")
+    print(f"Running {n_runs} experiments...")
     results = simulation.run_comparison(envs, algs, n_runs=n_runs)
     
     # Print summary
-    print("\n📈 RESULTS SUMMARY:")
+    print("\nRESULTS SUMMARY:")
     for env_name, env_results in results.items():
         print(f"\n{env_name}:")
         for alg_name, alg_results in env_results.items():
             print(f"  {alg_name:25}: Revenue = {alg_results['avg_revenue']:.1f} ± {alg_results['std_revenue']:.1f}")
     
     if save_plots:
-        simulation.plot_results(results, 'requirement_5_results.png')
-        print("📊 Plots saved to 'results/requirement_5_results.png'")
+        simulation.plot_results(results, 5)
+        print("Plots saved to 'results/requirement_5/plots/'")
     
     if save_csv:
-        simulation.save_results_to_csv(results, 'requirement_5')
+        simulation.save_results_to_csv(results, 5)
+        print("Data saved to 'results/requirement_5/data/'")
     
     return results
 
-def run_all_requirements(n_runs=5, save_plots=False, save_csv=False):
+def run_all_requirements(n_runs=5, save_plots=False, save_csv=False, seed=42):
     """Run all project requirements"""
     print_project_header()
     
     all_results = {}
     
     try:
-        all_results['req1'] = run_requirement_1(n_runs, save_plots, save_csv)
-        all_results['req2'] = run_requirement_2(n_runs, save_plots, save_csv)
-        all_results['req3'] = run_requirement_3(n_runs, save_plots, save_csv)
-        all_results['req4'] = run_requirement_4(n_runs, save_plots, save_csv)
-        all_results['req5'] = run_requirement_5(n_runs, save_plots, save_csv)
+        all_results['req1'] = run_requirement_1(n_runs, save_plots, save_csv, seed)
+        all_results['req2'] = run_requirement_2(n_runs, save_plots, save_csv, seed)
+        all_results['req3'] = run_requirement_3(n_runs, save_plots, save_csv, seed)
+        all_results['req4'] = run_requirement_4(n_runs, save_plots, save_csv, seed)
+        all_results['req5'] = run_requirement_5(n_runs, save_plots, save_csv, seed)
         
         print("\n" + "="*80)
-        print("🎉 ALL REQUIREMENTS COMPLETED SUCCESSFULLY!")
+        print("ALL REQUIREMENTS COMPLETED SUCCESSFULLY!")
         print("="*80)
         
         # Summary of all requirements
-        print("\n📋 COMPLETE PROJECT SUMMARY:")
+        print("\nCOMPLETE PROJECT SUMMARY:")
         print("-" * 40)
         
         req_names = [
@@ -235,13 +240,13 @@ def run_all_requirements(n_runs=5, save_plots=False, save_csv=False):
                 print(f"   Best on {env_name}: {best_alg[0]} ({best_alg[1]['avg_revenue']:.1f} revenue)")
         
         if save_plots:
-            print(f"\n📊 All plots saved to 'results/requirement_X_results.png'")
+            print(f"\nAll plots saved to 'results/requirement_X/plots/' directories")
         
         if save_csv:
-            print(f"\n📋 All numerical results saved to 'results/' folder with timestamps")
+            print(f"\nAll numerical results saved to 'results/requirement_X/data/' directories")
         
     except Exception as e:
-        print(f"\n❌ Error occurred: {str(e)}")
+        print(f"\nError occurred: {str(e)}")
         print("Please check the error and try again.")
         return None
     
@@ -279,13 +284,15 @@ Examples:
     parser.add_argument(
         '--save-plots', '-s',
         action='store_true',
-        help='Save plots to PNG files'
+        help='Save plots to PNG files',
+        default=True
     )
     
     parser.add_argument(
         '--save-csv', '-c',
         action='store_true',
-        help='Save numerical results to CSV files'
+        help='Save numerical results to CSV files',
+        default=True
     )
     
     parser.add_argument(
@@ -302,30 +309,30 @@ Examples:
     
     # Run the specified requirement(s)
     if args.requirement == 'all':
-        results = run_all_requirements(args.runs, args.save_plots, args.save_csv)
+        results = run_all_requirements(args.runs, args.save_plots, args.save_csv, args.seed)
     elif args.requirement == '1':
         print_project_header()
-        results = run_requirement_1(args.runs, args.save_plots, args.save_csv)
+        results = run_requirement_1(args.runs, args.save_plots, args.save_csv, args.seed)
     elif args.requirement == '2':
         print_project_header()
-        results = run_requirement_2(args.runs, args.save_plots, args.save_csv)
+        results = run_requirement_2(args.runs, args.save_plots, args.save_csv, args.seed)
     elif args.requirement == '3':
         print_project_header()
-        results = run_requirement_3(args.runs, args.save_plots, args.save_csv)
+        results = run_requirement_3(args.runs, args.save_plots, args.save_csv, args.seed)
     elif args.requirement == '4':
         print_project_header()
-        results = run_requirement_4(args.runs, args.save_plots, args.save_csv)
+        results = run_requirement_4(args.runs, args.save_plots, args.save_csv, args.seed)
     elif args.requirement == '5':
         print_project_header()
-        results = run_requirement_5(args.runs, args.save_plots, args.save_csv)
+        results = run_requirement_5(args.runs, args.save_plots, args.save_csv, args.seed)
     
     if results is not None:
-        print(f"\n✅ Experiment completed with {args.runs} runs per algorithm.")
+        print(f"\nExperiment completed with {args.runs} runs per algorithm.")
         if args.save_plots:
-            print("📊 Plots have been saved to 'results/' folder.")
+            print("Plots have been saved to structured 'results/requirement_X/plots/' directories.")
         if args.save_csv:
-            print("📋 Numerical results have been saved to 'results/' folder.")
-        print("🔬 Check the results above for detailed performance analysis.")
+            print("Numerical results have been saved to structured 'results/requirement_X/data/' directories.")
+        print("Check the results above for detailed performance analysis.")
 
 if __name__ == "__main__":
     main()

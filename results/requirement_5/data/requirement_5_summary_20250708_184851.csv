@@ -1,0 +1,3 @@
+Environment,Algorithm,Avg_Revenue,Std_Revenue,Avg_Regret,Avg_Rounds,Avg_Budget_Used
+Slightly Non-Stationary,Combinatorial UCB (Sliding Window),nan,nan,0.00,296.0,-0.4
+Slightly Non-Stationary,Primal-Dual Multi,3209.00,61.91,0.00,790.3,0.8

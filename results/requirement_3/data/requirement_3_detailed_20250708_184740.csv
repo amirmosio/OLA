@@ -1,0 +1,41 @@
+Environment,Algorithm,Run,Total_Revenue,Rounds_Completed,Final_Budget
+Stochastic,UCB with Inventory,1,2038.00,967,0
+Stochastic,UCB with Inventory,2,2069.00,999,0
+Stochastic,UCB with Inventory,3,2004.00,955,0
+Stochastic,UCB with Inventory,4,2040.00,945,0
+Stochastic,UCB with Inventory,5,2105.00,957,0
+Stochastic,UCB with Inventory,6,2053.00,955,0
+Stochastic,UCB with Inventory,7,2054.00,973,0
+Stochastic,UCB with Inventory,8,2009.00,961,0
+Stochastic,UCB with Inventory,9,2026.00,953,0
+Stochastic,UCB with Inventory,10,2012.00,979,0
+Stochastic,Primal-Dual,1,1974.00,735,0
+Stochastic,Primal-Dual,2,2411.00,917,0
+Stochastic,Primal-Dual,3,2462.00,955,0
+Stochastic,Primal-Dual,4,1972.00,738,0
+Stochastic,Primal-Dual,5,2356.00,928,0
+Stochastic,Primal-Dual,6,1961.00,756,0
+Stochastic,Primal-Dual,7,1978.00,725,0
+Stochastic,Primal-Dual,8,2453.00,968,0
+Stochastic,Primal-Dual,9,1938.00,728,0
+Stochastic,Primal-Dual,10,1921.00,738,0
+Non-Stationary,UCB with Inventory,1,1123.00,1000,9
+Non-Stationary,UCB with Inventory,2,861.00,1000,43
+Non-Stationary,UCB with Inventory,3,1487.00,890,0
+Non-Stationary,UCB with Inventory,4,2192.00,670,0
+Non-Stationary,UCB with Inventory,5,2247.00,915,0
+Non-Stationary,UCB with Inventory,6,2449.00,724,0
+Non-Stationary,UCB with Inventory,7,2271.00,541,0
+Non-Stationary,UCB with Inventory,8,2199.00,721,0
+Non-Stationary,UCB with Inventory,9,383.00,1000,308
+Non-Stationary,UCB with Inventory,10,1537.00,998,0
+Non-Stationary,Primal-Dual,1,1272.00,1000,172
+Non-Stationary,Primal-Dual,2,825.00,1000,118
+Non-Stationary,Primal-Dual,3,1883.00,1000,37
+Non-Stationary,Primal-Dual,4,1989.00,629,0
+Non-Stationary,Primal-Dual,5,1947.00,701,0
+Non-Stationary,Primal-Dual,6,1963.00,571,0
+Non-Stationary,Primal-Dual,7,2475.00,595,0
+Non-Stationary,Primal-Dual,8,1518.00,609,0
+Non-Stationary,Primal-Dual,9,430.00,1000,349
+Non-Stationary,Primal-Dual,10,1562.00,1000,174
