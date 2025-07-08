@@ -1,0 +1,5 @@
+Environment,Algorithm,Avg_Revenue,Std_Revenue,Avg_Regret,Avg_Rounds,Avg_Budget_Used
+Stochastic,UCB with Inventory,2055.33,11.32,0.00,970.0,0.0
+Stochastic,Primal-Dual,2086.33,149.68,0.00,903.0,50.7
+Highly Non-Stationary,UCB with Inventory,2050.67,489.08,0.00,809.7,0.0
+Highly Non-Stationary,Primal-Dual,2055.00,574.18,0.00,823.0,29.7

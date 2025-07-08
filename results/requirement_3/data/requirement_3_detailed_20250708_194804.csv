@@ -1,0 +1,41 @@
+Environment,Algorithm,Run,Total_Revenue,Rounds_Completed,Final_Budget
+Stochastic,UCB with Inventory,1,2041.00,924,0.0
+Stochastic,UCB with Inventory,2,2090.00,988,0.0
+Stochastic,UCB with Inventory,3,2075.00,970,0.0
+Stochastic,UCB with Inventory,4,2064.00,994,0.0
+Stochastic,UCB with Inventory,5,2061.00,979,0.0
+Stochastic,UCB with Inventory,6,2106.00,985,0.0
+Stochastic,UCB with Inventory,7,2086.00,961,0.0
+Stochastic,UCB with Inventory,8,2078.00,994,0.0
+Stochastic,UCB with Inventory,9,1984.00,944,0.0
+Stochastic,UCB with Inventory,10,1994.00,942,0.0
+Stochastic,Primal-Dual,1,1948.00,718,0.0
+Stochastic,Primal-Dual,2,1948.00,721,0.0
+Stochastic,Primal-Dual,3,2420.00,969,0.0
+Stochastic,Primal-Dual,4,1565.00,646,0.0
+Stochastic,Primal-Dual,5,2427.00,995,0.0
+Stochastic,Primal-Dual,6,1941.00,766,0.0
+Stochastic,Primal-Dual,7,1527.00,624,0.0
+Stochastic,Primal-Dual,8,1963.00,726,0.0
+Stochastic,Primal-Dual,9,1915.00,1000,169.0
+Stochastic,Primal-Dual,10,1798.00,1000,186.0
+HighlyNon-Stationary,UCB with Inventory,1,2043.00,780,0.0
+HighlyNon-Stationary,UCB with Inventory,2,2245.00,511,0.0
+HighlyNon-Stationary,UCB with Inventory,3,1649.00,992,0.0
+HighlyNon-Stationary,UCB with Inventory,4,1741.00,835,0.0
+HighlyNon-Stationary,UCB with Inventory,5,1572.00,1000,47.0
+HighlyNon-Stationary,UCB with Inventory,6,2439.00,944,0.0
+HighlyNon-Stationary,UCB with Inventory,7,2355.00,907,0.0
+HighlyNon-Stationary,UCB with Inventory,8,1831.00,1000,0.0
+HighlyNon-Stationary,UCB with Inventory,9,1978.00,826,0.0
+HighlyNon-Stationary,UCB with Inventory,10,816.00,1000,97.0
+HighlyNon-Stationary,Primal-Dual,1,1973.00,603,0.0
+HighlyNon-Stationary,Primal-Dual,2,2306.00,692,0.0
+HighlyNon-Stationary,Primal-Dual,3,1975.00,751,0.0
+HighlyNon-Stationary,Primal-Dual,4,2447.00,743,0.0
+HighlyNon-Stationary,Primal-Dual,5,2151.00,1000,128.0
+HighlyNon-Stationary,Primal-Dual,6,2820.00,578,0.0
+HighlyNon-Stationary,Primal-Dual,7,3355.00,712,0.0
+HighlyNon-Stationary,Primal-Dual,8,2764.00,1000,24.0
+HighlyNon-Stationary,Primal-Dual,9,1847.00,1000,35.0
+HighlyNon-Stationary,Primal-Dual,10,2073.00,603,0.0

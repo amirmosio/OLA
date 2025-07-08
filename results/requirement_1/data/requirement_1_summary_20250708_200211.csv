@@ -1,0 +1,3 @@
+Environment,Algorithm,Avg_Revenue,Std_Revenue,Avg_Regret,Avg_Rounds,Avg_Budget_Used
+Stochastic Single Product,UCB1 (No Constraint),1698.50,65.50,0.00,651.0,0.0
+Stochastic Single Product,UCB with Inventory,2063.50,6.50,0.00,981.0,0.0

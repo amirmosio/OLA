@@ -1,0 +1,13 @@
+Environment,Algorithm,Run,Total_Revenue,Rounds_Completed,Final_Budget
+Stochastic Multi,Combinatorial UCB,1,1965.00,918,-2.0
+Stochastic Multi,Combinatorial UCB,2,1897.00,888,0.0
+Stochastic Multi,Combinatorial UCB,3,1902.00,342,0.0
+Stochastic Multi,Primal-Dual Multi,1,2261.00,1000,116.0
+Stochastic Multi,Primal-Dual Multi,2,2568.00,1000,58.0
+Stochastic Multi,Primal-Dual Multi,3,2528.00,1000,63.0
+Non-Stationary Multi,Combinatorial UCB,1,2041.00,769,0.0
+Non-Stationary Multi,Combinatorial UCB,2,1954.00,361,0.0
+Non-Stationary Multi,Combinatorial UCB,3,2122.00,948,-1.0
+Non-Stationary Multi,Primal-Dual Multi,1,3171.00,468,0.0
+Non-Stationary Multi,Primal-Dual Multi,2,3445.00,716,0.0
+Non-Stationary Multi,Primal-Dual Multi,3,3159.00,700,0.0

@@ -1,0 +1,13 @@
+Environment,Algorithm,Run,Total_Revenue,Rounds_Completed,Final_Budget
+Stochastic,UCB with Inventory,1,2067.00,962,0.0
+Stochastic,UCB with Inventory,2,2040.00,967,0.0
+Stochastic,UCB with Inventory,3,2059.00,981,0.0
+Stochastic,Primal-Dual,1,1982.00,739,0.0
+Stochastic,Primal-Dual,2,2298.00,970,0.0
+Stochastic,Primal-Dual,3,1979.00,1000,152.0
+Highly Non-Stationary,UCB with Inventory,1,2398.00,865,0.0
+Highly Non-Stationary,UCB with Inventory,2,1359.00,1000,0.0
+Highly Non-Stationary,UCB with Inventory,3,2395.00,564,0.0
+Highly Non-Stationary,Primal-Dual,1,2458.00,696,0.0
+Highly Non-Stationary,Primal-Dual,2,2464.00,773,0.0
+Highly Non-Stationary,Primal-Dual,3,1243.00,1000,89.0

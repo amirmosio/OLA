@@ -1,0 +1,41 @@
+Environment,Algorithm,Run,Total_Revenue,Rounds_Completed,Final_Budget
+Stochastic Multi,Combinatorial UCB,1,1889.00,861,0.0
+Stochastic Multi,Combinatorial UCB,2,1943.00,757,0.0
+Stochastic Multi,Combinatorial UCB,3,1914.00,862,-2.0
+Stochastic Multi,Combinatorial UCB,4,1952.00,890,0.0
+Stochastic Multi,Combinatorial UCB,5,1932.00,952,-1.0
+Stochastic Multi,Combinatorial UCB,6,2009.00,964,-1.0
+Stochastic Multi,Combinatorial UCB,7,2043.00,362,-1.0
+Stochastic Multi,Combinatorial UCB,8,1994.00,344,-1.0
+Stochastic Multi,Combinatorial UCB,9,1927.00,852,0.0
+Stochastic Multi,Combinatorial UCB,10,1955.00,338,-1.0
+Stochastic Multi,Primal-Dual Multi,1,1954.00,1000,163.0
+Stochastic Multi,Primal-Dual Multi,2,2069.00,1000,122.0
+Stochastic Multi,Primal-Dual Multi,3,2567.00,1000,58.0
+Stochastic Multi,Primal-Dual Multi,4,2741.00,1000,40.0
+Stochastic Multi,Primal-Dual Multi,5,2482.00,1000,80.0
+Stochastic Multi,Primal-Dual Multi,6,2270.00,1000,107.0
+Stochastic Multi,Primal-Dual Multi,7,2546.00,1000,52.0
+Stochastic Multi,Primal-Dual Multi,8,2620.00,1000,58.0
+Stochastic Multi,Primal-Dual Multi,9,2652.00,1000,43.0
+Stochastic Multi,Primal-Dual Multi,10,2754.00,1000,34.0
+Highly Non-Stationary Multi,Combinatorial UCB,1,2146.00,369,0.0
+Highly Non-Stationary Multi,Combinatorial UCB,2,1890.00,793,0.0
+Highly Non-Stationary Multi,Combinatorial UCB,3,1828.00,439,0.0
+Highly Non-Stationary Multi,Combinatorial UCB,4,1982.00,986,-1.0
+Highly Non-Stationary Multi,Combinatorial UCB,5,2356.00,913,0.0
+Highly Non-Stationary Multi,Combinatorial UCB,6,2100.00,321,0.0
+Highly Non-Stationary Multi,Combinatorial UCB,7,2037.00,838,0.0
+Highly Non-Stationary Multi,Combinatorial UCB,8,2063.00,342,0.0
+Highly Non-Stationary Multi,Combinatorial UCB,9,2106.00,338,0.0
+Highly Non-Stationary Multi,Combinatorial UCB,10,1960.00,452,0.0
+Highly Non-Stationary Multi,Primal-Dual Multi,1,3140.00,981,0.0
+Highly Non-Stationary Multi,Primal-Dual Multi,2,2920.00,1000,30.0
+Highly Non-Stationary Multi,Primal-Dual Multi,3,2379.00,1000,114.0
+Highly Non-Stationary Multi,Primal-Dual Multi,4,3047.00,961,0.0
+Highly Non-Stationary Multi,Primal-Dual Multi,5,3063.00,848,0.0
+Highly Non-Stationary Multi,Primal-Dual Multi,6,2910.00,1000,23.0
+Highly Non-Stationary Multi,Primal-Dual Multi,7,3104.00,553,0.0
+Highly Non-Stationary Multi,Primal-Dual Multi,8,3087.00,496,0.0
+Highly Non-Stationary Multi,Primal-Dual Multi,9,2989.00,936,0.0
+Highly Non-Stationary Multi,Primal-Dual Multi,10,3001.00,1000,30.0

@@ -1,0 +1,21 @@
+Environment,Algorithm,Run,Total_Revenue,Rounds_Completed,Final_Budget
+Slightly Non-Stationary,Combinatorial UCB (Sliding Window),1,1697.00,357,-1.0
+Slightly Non-Stationary,Combinatorial UCB (Sliding Window),2,1698.00,346,0.0
+Slightly Non-Stationary,Combinatorial UCB (Sliding Window),3,1622.00,354,-1.0
+Slightly Non-Stationary,Combinatorial UCB (Sliding Window),4,1640.00,349,0.0
+Slightly Non-Stationary,Combinatorial UCB (Sliding Window),5,1589.00,354,0.0
+Slightly Non-Stationary,Combinatorial UCB (Sliding Window),6,1700.00,349,0.0
+Slightly Non-Stationary,Combinatorial UCB (Sliding Window),7,1683.00,331,0.0
+Slightly Non-Stationary,Combinatorial UCB (Sliding Window),8,1652.00,350,-1.0
+Slightly Non-Stationary,Combinatorial UCB (Sliding Window),9,1638.00,348,0.0
+Slightly Non-Stationary,Combinatorial UCB (Sliding Window),10,1603.00,337,0.0
+Slightly Non-Stationary,Primal-Dual Multi,1,3091.00,917,0.0
+Slightly Non-Stationary,Primal-Dual Multi,2,3055.00,875,-1.0
+Slightly Non-Stationary,Primal-Dual Multi,3,3173.00,891,-1.0
+Slightly Non-Stationary,Primal-Dual Multi,4,2815.00,808,0.0
+Slightly Non-Stationary,Primal-Dual Multi,5,3204.00,883,0.0
+Slightly Non-Stationary,Primal-Dual Multi,6,2789.00,789,0.0
+Slightly Non-Stationary,Primal-Dual Multi,7,3137.00,861,-1.0
+Slightly Non-Stationary,Primal-Dual Multi,8,3054.00,855,0.0
+Slightly Non-Stationary,Primal-Dual Multi,9,2808.00,813,-2.0
+Slightly Non-Stationary,Primal-Dual Multi,10,3097.00,860,-1.0

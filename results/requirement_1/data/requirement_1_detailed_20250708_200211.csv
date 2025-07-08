@@ -1,0 +1,5 @@
+Environment,Algorithm,Run,Total_Revenue,Rounds_Completed,Final_Budget
+Stochastic Single Product,UCB1 (No Constraint),1,1633.00,649,0.0
+Stochastic Single Product,UCB1 (No Constraint),2,1764.00,653,0.0
+Stochastic Single Product,UCB with Inventory,1,2070.00,988,0.0
+Stochastic Single Product,UCB with Inventory,2,2057.00,974,0.0

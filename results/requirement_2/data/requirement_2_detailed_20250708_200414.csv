@@ -1,0 +1,11 @@
+Environment,Algorithm,Run,Total_Revenue,Rounds_Completed,Final_Budget
+Stochastic Multi Product,Combinatorial UCB,1,1988.00,857,-1.0
+Stochastic Multi Product,Combinatorial UCB,2,1973.00,871,0.0
+Stochastic Multi Product,Combinatorial UCB,3,1952.00,343,0.0
+Stochastic Multi Product,Combinatorial UCB,4,1966.00,919,0.0
+Stochastic Multi Product,Combinatorial UCB,5,2011.00,335,0.0
+Stochastic Multi Product,Combinatorial UCB,6,1953.00,698,0.0
+Stochastic Multi Product,Combinatorial UCB,7,2042.00,871,0.0
+Stochastic Multi Product,Combinatorial UCB,8,1902.00,761,-1.0
+Stochastic Multi Product,Combinatorial UCB,9,2011.00,973,-2.0
+Stochastic Multi Product,Combinatorial UCB,10,1975.00,779,0.0

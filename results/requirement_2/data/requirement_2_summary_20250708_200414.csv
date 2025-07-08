@@ -1,0 +1,2 @@
+Environment,Algorithm,Avg_Revenue,Std_Revenue,Avg_Regret,Avg_Rounds,Avg_Budget_Used
+Stochastic Multi Product,Combinatorial UCB,1977.30,36.91,0.00,740.7,-0.4

@@ -1,0 +1,21 @@
+Environment,Algorithm,Run,Total_Revenue,Rounds_Completed,Final_Budget
+Stochastic Single Product,UCB1 (No Constraint),1,1633.00,649,0.0
+Stochastic Single Product,UCB1 (No Constraint),2,1764.00,653,0.0
+Stochastic Single Product,UCB1 (No Constraint),3,2066.00,757,0.0
+Stochastic Single Product,UCB1 (No Constraint),4,1918.00,695,0.0
+Stochastic Single Product,UCB1 (No Constraint),5,1875.00,715,0.0
+Stochastic Single Product,UCB1 (No Constraint),6,1849.00,709,0.0
+Stochastic Single Product,UCB1 (No Constraint),7,1967.00,808,0.0
+Stochastic Single Product,UCB1 (No Constraint),8,2006.00,775,0.0
+Stochastic Single Product,UCB1 (No Constraint),9,1956.00,733,0.0
+Stochastic Single Product,UCB1 (No Constraint),10,1883.00,718,0.0
+Stochastic Single Product,UCB with Inventory,1,2047.00,965,0.0
+Stochastic Single Product,UCB with Inventory,2,2038.00,983,0.0
+Stochastic Single Product,UCB with Inventory,3,2033.00,986,0.0
+Stochastic Single Product,UCB with Inventory,4,2021.00,979,0.0
+Stochastic Single Product,UCB with Inventory,5,2052.00,979,0.0
+Stochastic Single Product,UCB with Inventory,6,2027.00,948,0.0
+Stochastic Single Product,UCB with Inventory,7,2072.00,979,0.0
+Stochastic Single Product,UCB with Inventory,8,2059.00,960,0.0
+Stochastic Single Product,UCB with Inventory,9,2046.00,951,0.0
+Stochastic Single Product,UCB with Inventory,10,2070.00,968,0.0
