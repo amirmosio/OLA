@@ -33,13 +33,13 @@ def print_project_header():
     print("5. Slightly Non-Stationary: Sliding Window vs Primal-Dual")
     print("="*80)
 
-def run_requirement_1(n_runs=5, save_plots=False, save_csv=False, seed=42):
+def run_requirement_1(n_runs=5, save_plots=False, save_csv=False):
     """Run Requirement 1: Single product stochastic"""
     print("\nREQUIREMENT 1: Single Product Stochastic Environment")
     print("-" * 60)
     
-    simulation = PricingSimulation(seed=seed)
-    envs, algs = create_requirement_1_experiment(env_seed=seed + 1, alg_seed=seed + 100)
+    simulation = PricingSimulation()
+    envs, algs = create_requirement_1_experiment()
     
     print("Algorithms being tested:")
     for alg_name in algs.keys():
@@ -65,13 +65,13 @@ def run_requirement_1(n_runs=5, save_plots=False, save_csv=False, seed=42):
     
     return results
 
-def run_requirement_2(n_runs=5, save_plots=False, save_csv=False, seed=42):
+def run_requirement_2(n_runs=5, save_plots=False, save_csv=False):
     """Run Requirement 2: Multiple products stochastic"""
     print("\nREQUIREMENT 2: Multiple Products Stochastic Environment")
     print("-" * 60)
     
-    simulation = PricingSimulation(seed=seed)
-    envs, algs = create_requirement_2_experiment(env_seed=seed + 2, alg_seed=seed + 200)
+    simulation = PricingSimulation()
+    envs, algs = create_requirement_2_experiment()
     
     print("Algorithms being tested:")
     for alg_name in algs.keys():
@@ -97,13 +97,13 @@ def run_requirement_2(n_runs=5, save_plots=False, save_csv=False, seed=42):
     
     return results
 
-def run_requirement_3(n_runs=5, save_plots=False, save_csv=False, seed=42):
+def run_requirement_3(n_runs=5, save_plots=False, save_csv=False):
     """Run Requirement 3: Best-of-both-worlds single product"""
     print("\nREQUIREMENT 3: Best-of-Both-Worlds Single Product")
     print("-" * 60)
     
-    simulation = PricingSimulation(seed=seed)
-    envs, algs = create_requirement_3_experiment(env_seed=seed + 3, alg_seed=seed + 300)
+    simulation = PricingSimulation()
+    envs, algs = create_requirement_3_experiment()
     
     print("Algorithms being tested:")
     for alg_name in algs.keys():
@@ -133,13 +133,13 @@ def run_requirement_3(n_runs=5, save_plots=False, save_csv=False, seed=42):
     
     return results
 
-def run_requirement_4(n_runs=5, save_plots=False, save_csv=False, seed=42):
+def run_requirement_4(n_runs=5, save_plots=False, save_csv=False):
     """Run Requirement 4: Best-of-both-worlds multiple products"""
     print("\nREQUIREMENT 4: Best-of-Both-Worlds Multiple Products")
     print("-" * 60)
     
-    simulation = PricingSimulation(seed=seed)
-    envs, algs = create_requirement_4_experiment(env_seed=seed + 4, alg_seed=seed + 400)
+    simulation = PricingSimulation()
+    envs, algs = create_requirement_4_experiment()
     
     print("Algorithms being tested:")
     for alg_name in algs.keys():
@@ -169,13 +169,13 @@ def run_requirement_4(n_runs=5, save_plots=False, save_csv=False, seed=42):
     
     return results
 
-def run_requirement_5(n_runs=5, save_plots=False, save_csv=False, seed=42):
+def run_requirement_5(n_runs=5, save_plots=False, save_csv=False):
     """Run Requirement 5: Slightly non-stationary with sliding window"""
     print("\nREQUIREMENT 5: Slightly Non-Stationary with Sliding Window")
     print("-" * 60)
     
-    simulation = PricingSimulation(seed=seed)
-    envs, algs = create_requirement_5_experiment(env_seed=seed + 5, alg_seed=seed + 500)
+    simulation = PricingSimulation()
+    envs, algs = create_requirement_5_experiment()
     
     print("Algorithms being tested:")
     for alg_name in algs.keys():
@@ -203,18 +203,18 @@ def run_requirement_5(n_runs=5, save_plots=False, save_csv=False, seed=42):
     
     return results
 
-def run_all_requirements(n_runs=5, save_plots=False, save_csv=False, seed=42):
+def run_all_requirements(n_runs=5, save_plots=False, save_csv=False):
     """Run all project requirements"""
     print_project_header()
     
     all_results = {}
     
     try:
-        all_results['req1'] = run_requirement_1(n_runs, save_plots, save_csv, seed)
-        all_results['req2'] = run_requirement_2(n_runs, save_plots, save_csv, seed)
-        all_results['req3'] = run_requirement_3(n_runs, save_plots, save_csv, seed)
-        all_results['req4'] = run_requirement_4(n_runs, save_plots, save_csv, seed)
-        all_results['req5'] = run_requirement_5(n_runs, save_plots, save_csv, seed)
+        all_results['req1'] = run_requirement_1(n_runs, save_plots, save_csv)
+        all_results['req2'] = run_requirement_2(n_runs, save_plots, save_csv)
+        all_results['req3'] = run_requirement_3(n_runs, save_plots, save_csv)
+        all_results['req4'] = run_requirement_4(n_runs, save_plots, save_csv)
+        all_results['req5'] = run_requirement_5(n_runs, save_plots, save_csv)
         
         print("\n" + "="*80)
         print("ALL REQUIREMENTS COMPLETED SUCCESSFULLY!")
@@ -309,22 +309,22 @@ Examples:
     
     # Run the specified requirement(s)
     if args.requirement == 'all':
-        results = run_all_requirements(args.runs, args.save_plots, args.save_csv, args.seed)
+        results = run_all_requirements(args.runs, args.save_plots, args.save_csv)
     elif args.requirement == '1':
         print_project_header()
-        results = run_requirement_1(args.runs, args.save_plots, args.save_csv, args.seed)
+        results = run_requirement_1(args.runs, args.save_plots, args.save_csv)
     elif args.requirement == '2':
         print_project_header()
-        results = run_requirement_2(args.runs, args.save_plots, args.save_csv, args.seed)
+        results = run_requirement_2(args.runs, args.save_plots, args.save_csv)
     elif args.requirement == '3':
         print_project_header()
-        results = run_requirement_3(args.runs, args.save_plots, args.save_csv, args.seed)
+        results = run_requirement_3(args.runs, args.save_plots, args.save_csv)
     elif args.requirement == '4':
         print_project_header()
-        results = run_requirement_4(args.runs, args.save_plots, args.save_csv, args.seed)
+        results = run_requirement_4(args.runs, args.save_plots, args.save_csv)
     elif args.requirement == '5':
         print_project_header()
-        results = run_requirement_5(args.runs, args.save_plots, args.save_csv, args.seed)
+        results = run_requirement_5(args.runs, args.save_plots, args.save_csv)
     
     if results is not None:
         print(f"\nExperiment completed with {args.runs} runs per algorithm.")

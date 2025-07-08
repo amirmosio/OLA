@@ -18,8 +18,7 @@ from algorithms import PricingAlgorithm
 class PricingSimulation:
     """Main simulation class for pricing experiments"""
     
-    def __init__(self, seed: int = 42):
-        np.random.seed(seed)
+    def __init__(self):
         self.results = {}
         
     def create_requirement_directories(self, requirement_num: int):
@@ -109,22 +108,7 @@ class PricingSimulation:
                     run_results = []
                     for run in range(n_runs):
                         pbar.set_description(f"{env_name[:15]} | {alg_name[:20]} | Run {run+1}/{n_runs}")
-                        
-                        # Create fresh copies with run-specific seeds for reproducibility
-                        run_env_seed = hash((env_name, run)) % 2**31  # Ensure positive 32-bit int
-                        run_alg_seed = hash((alg_name, run)) % 2**31  # Ensure positive 32-bit int
-                        
-                        # Create new instances with run-specific seeds
-                        env_copy = copy.deepcopy(env)
-                        alg_copy = copy.deepcopy(alg)
-                        
-                        # Set new seeds for this run
-                        if hasattr(env_copy, 'rng'):
-                            env_copy.rng = np.random.RandomState(run_env_seed)
-                        if hasattr(alg_copy, 'rng'):
-                            alg_copy.rng = np.random.RandomState(run_alg_seed)
-                        
-                        result = self.run_single_experiment(env_copy, alg_copy, alg_name)
+                        result = self.run_single_experiment(env, alg, alg_name)
                         run_results.append(result)
                         pbar.update(1)
                     

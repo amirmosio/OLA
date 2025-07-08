@@ -7,8 +7,8 @@ from typing import List, Dict, Tuple, Optional
 class UCB1SingleProduct(PricingAlgorithm):
     """UCB1 algorithm for single product pricing (ignoring inventory constraint)"""
     
-    def __init__(self, prices: List[float], T: int, B: int, seed: int = None):
-        super().__init__(prices, 1, T, B, seed)
+    def __init__(self, prices: List[float], T: int, B: int):
+        super().__init__(prices, 1, T, B)
         self.counts = np.zeros(self.n_prices)
         self.values = np.zeros(self.n_prices)
         self.total_rewards = np.zeros(self.n_prices)
@@ -37,19 +37,12 @@ class UCB1SingleProduct(PricingAlgorithm):
         self.total_rewards[price_idx] += revenue
         self.values[price_idx] = self.total_rewards[price_idx] / self.counts[price_idx]
         self.current_round += 1
-        
-    def reset(self):
-        """Reset algorithm to initial state"""
-        super().reset()
-        self.counts = np.zeros(self.n_prices)
-        self.values = np.zeros(self.n_prices)
-        self.total_rewards = np.zeros(self.n_prices)
 
 class UCBWithInventoryConstraintSingleProduct(PricingAlgorithm):
     """UCB algorithm with inventory constraint using UCB-like approach from images"""
     
-    def __init__(self, prices: List[float], T: int, B: int, seed: int = None):
-        super().__init__(prices, 1, T, B, seed)
+    def __init__(self, prices: List[float], T: int, B: int):
+        super().__init__(prices, 1, T, B)
         self.counts = np.zeros(self.n_prices)
         self.f_hat = np.zeros(self.n_prices)  # Revenue estimates
         self.c_hat = np.zeros(self.n_prices)  # Cost/consumption estimates
@@ -107,21 +100,12 @@ class UCBWithInventoryConstraintSingleProduct(PricingAlgorithm):
         self.c_hat[price_idx] = self.total_consumption[price_idx] / self.counts[price_idx]
         
         self.current_round += 1
-        
-    def reset(self):
-        """Reset algorithm to initial state"""
-        super().reset()
-        self.counts = np.zeros(self.n_prices)
-        self.f_hat = np.zeros(self.n_prices)
-        self.c_hat = np.zeros(self.n_prices)
-        self.total_revenue = np.zeros(self.n_prices)
-        self.total_consumption = np.zeros(self.n_prices)
 
 class CombinatorialUCB(PricingAlgorithm):
     """Combinatorial UCB for multiple products with inventory constraint"""
     
-    def __init__(self, prices: List[float], n_products: int, T: int, B: int, seed: int = None):
-        super().__init__(prices, n_products, T, B, seed)
+    def __init__(self, prices: List[float], n_products: int, T: int, B: int):
+        super().__init__(prices, n_products, T, B)
         # For each product and price combination
         self.counts = np.zeros((n_products, self.n_prices))
         self.f_hat = np.zeros((n_products, self.n_prices))  # Revenue estimates per product-price
@@ -228,21 +212,12 @@ class CombinatorialUCB(PricingAlgorithm):
                 self.c_hat[i, price_idx] = self.total_consumption[i, price_idx] / self.counts[i, price_idx]
         
         self.current_round += 1
-        
-    def reset(self):
-        """Reset algorithm to initial state"""
-        super().reset()
-        self.counts = np.zeros((self.n_products, self.n_prices))
-        self.f_hat = np.zeros((self.n_products, self.n_prices))
-        self.c_hat = np.zeros((self.n_products, self.n_prices))
-        self.total_revenue = np.zeros((self.n_products, self.n_prices))
-        self.total_consumption = np.zeros((self.n_products, self.n_prices))
 
 class SlidingWindowCombinatorialUCB(CombinatorialUCB):
     """Combinatorial UCB with sliding window for non-stationary environments"""
     
-    def __init__(self, prices: List[float], n_products: int, T: int, B: int, window_size: int, seed: int = None):
-        super().__init__(prices, n_products, T, B, seed)
+    def __init__(self, prices: List[float], n_products: int, T: int, B: int, window_size: int):
+        super().__init__(prices, n_products, T, B)
         self.window_size = window_size
         # Store recent observations for sliding window
         self.recent_observations = deque(maxlen=window_size)
@@ -291,9 +266,4 @@ class SlidingWindowCombinatorialUCB(CombinatorialUCB):
                purchases: np.ndarray, revenue: float):
         """Store observation in sliding window"""
         self.recent_observations.append((prices_set.copy(), purchases.copy(), revenue))
-        self.current_round += 1
-        
-    def reset(self):
-        """Reset algorithm to initial state"""
-        super().reset()
-        self.recent_observations.clear() 
+        self.current_round += 1 

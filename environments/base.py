@@ -5,31 +5,33 @@ from typing import List, Dict, Tuple
 class PricingEnvironment(ABC):
     """Base class for pricing environments"""
     
-    def __init__(self, n_products: int, prices: List[float], T: int, B: int, seed: int = None):
+    def __init__(self, n_products: int, prices: List[float], T: int, B: int):
         self.n_products = n_products
         self.prices = np.array(prices)
-        self.n_prices = len(prices)
-        self.T = T
+        self.T = T  # Number of rounds
+        self.remaining_budget = B  # Production capacity
         self.initial_B = B
-        self.remaining_budget = B
         self.current_round = 0
         self.history = []
         
-        # Set up random number generator with seed for reproducibility
-        if seed is not None:
-            self.rng = np.random.RandomState(seed)
-        else:
-            self.rng = np.random.RandomState()
-    
     @abstractmethod
     def generate_valuations(self, round_t: int) -> np.ndarray:
         """Generate customer valuations for round t"""
         pass
     
     def simulate_purchase(self, prices_set: np.ndarray, valuations: np.ndarray) -> Tuple[np.ndarray, float, int]:
-        """Simulate customer purchase decision given prices and valuations"""
-        purchases = (prices_set <= valuations).astype(int)
-        revenue = np.sum(purchases * prices_set)
+        """
+        Simulate customer purchase decision
+        Returns: (purchases, revenue, units_sold)
+        """
+        # Only consider products that are being sold (finite prices)
+        valid_products = np.isfinite(prices_set)
+        purchases = np.zeros_like(prices_set)
+        
+        # Customer buys products where price <= valuation AND product is being sold
+        purchases[valid_products] = (prices_set[valid_products] <= valuations[valid_products]).astype(int)
+        
+        revenue = np.sum(purchases * np.where(np.isfinite(prices_set), prices_set, 0))
         units_sold = np.sum(purchases)
         return purchases, revenue, units_sold
     

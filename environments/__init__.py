@@ -5,7 +5,7 @@ from .stochastic_environments import (
     StochasticMultiProductEnvironment
 )
 from .non_stationary_environments import (
-    HighlyNonStationaryEnvironment,
+    NonStationaryEnvironment,
     SlightlyNonStationaryEnvironment
 )
 
@@ -13,6 +13,6 @@ __all__ = [
     'PricingEnvironment',
     'StochasticSingleProductEnvironment',
     'StochasticMultiProductEnvironment',
-    'HighlyNonStationaryEnvironment',
+    'NonStationaryEnvironment',
     'SlightlyNonStationaryEnvironment'
 ] 

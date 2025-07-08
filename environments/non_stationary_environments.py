@@ -1,77 +1,44 @@
 import numpy as np
 from .base import PricingEnvironment
 from typing import List, Dict
+import random
 
-class HighlyNonStationaryEnvironment(PricingEnvironment):
-    """Highly non-stationary environment with quickly changing distributions"""
+class NonStationaryEnvironment(PricingEnvironment):
+    """Non-stationary environment with changing distributions"""
     
     def __init__(self, n_products: int, prices: List[float], T: int, B: int,
-                 base_mean: float = 5.0, base_std: float = 2.0, 
-                 change_rate: float = 0.1, noise_scale: float = 1.0, seed: int = None):
-        """
-        Initialize highly non-stationary environment with quickly changing distributions.
-        
-        Args:
-            base_mean: Base mean valuation around which distributions fluctuate
-            base_std: Base standard deviation for valuations
-            change_rate: How quickly the distribution parameters change (0.1 = 10% change per round)
-            noise_scale: Scale of the random fluctuations in distribution parameters
-        """
-        super().__init__(n_products, prices, T, B, seed)
-        self.base_mean = base_mean
-        self.base_std = base_std
-        self.change_rate = change_rate
-        self.noise_scale = noise_scale
-        
-        # Initialize current distribution parameters
-        if n_products == 1:
-            self.current_mean = base_mean
-            self.current_std = base_std
-        else:
-            self.current_mean = np.full(n_products, base_mean)
-            # Initialize covariance matrix with base_std on diagonal
-            self.current_cov = np.eye(n_products) * (base_std ** 2)
+                 change_points: List[int], distributions: List[Dict]):
+        super().__init__(n_products, prices, T, B)
+        self.change_points = sorted(change_points)
+        self.distributions = distributions
+        self.current_dist_idx = 0
+    
+    def get_current_distribution(self, round_t: int) -> Dict:
+        """Get the distribution parameters for current round"""
+        for i, cp in enumerate(self.change_points):
+            if round_t < cp:
+                return self.distributions[i]
+        return self.distributions[-1]
     
     def generate_valuations(self, round_t: int) -> np.ndarray:
-        """Generate valuations with quickly changing distribution parameters"""
+        """Generate valuations based on current distribution"""
+        dist_params = self.get_current_distribution(round_t)
         
-        # Update distribution parameters every round (highly non-stationary)
         if self.n_products == 1:
-            # Add random walk to mean and std
-            mean_change = self.rng.normal(0, self.change_rate * self.noise_scale)
-            std_change = self.rng.normal(0, self.change_rate * self.noise_scale * 0.5)
-            
-            self.current_mean += mean_change
-            self.current_std = max(0.5, self.current_std + std_change)  # Ensure positive std
-            
-            # Generate valuation with current (quickly changing) parameters
-            valuation = self.rng.normal(self.current_mean, self.current_std)
+            valuation = np.random.normal(dist_params['mean'], dist_params['std'])
             return np.array([max(0, valuation)])
         else:
-            # Multi-product case: update mean vector
-            mean_changes = self.rng.normal(0, self.change_rate * self.noise_scale, self.n_products)
-            self.current_mean += mean_changes
-            
-            # Occasionally update covariance structure (less frequently than mean)
-            if round_t % 10 == 0:  # Update covariance every 10 rounds
-                noise_matrix = self.rng.normal(0, self.change_rate * 0.1, (self.n_products, self.n_products))
-                noise_matrix = (noise_matrix + noise_matrix.T) / 2  # Make symmetric
-                self.current_cov += noise_matrix
-                # Ensure positive definite by adding small diagonal term if needed
-                eigenvals = np.linalg.eigvals(self.current_cov)
-                if np.min(eigenvals) <= 0:
-                    self.current_cov += np.eye(self.n_products) * (0.1 - np.min(eigenvals))
-            
-            # Generate valuations with current parameters
-            valuations = self.rng.multivariate_normal(self.current_mean, self.current_cov)
+            valuations = np.random.multivariate_normal(
+                dist_params['mean'], dist_params['cov']
+            )
             return np.maximum(0, valuations)
 
 class SlightlyNonStationaryEnvironment(PricingEnvironment):
     """Environment with intervals of fixed distributions"""
     
     def __init__(self, n_products: int, prices: List[float], T: int, B: int,
-                 interval_length: int, n_intervals: int, seed: int = None):
-        super().__init__(n_products, prices, T, B, seed)
+                 interval_length: int, n_intervals: int):
+        super().__init__(n_products, prices, T, B)
         self.interval_length = interval_length
         self.n_intervals = n_intervals
         
@@ -80,12 +47,12 @@ class SlightlyNonStationaryEnvironment(PricingEnvironment):
         for _ in range(n_intervals):
             if n_products == 1:
                 dist = {
-                    'mean': self.rng.uniform(2, 8),
-                    'std': self.rng.uniform(0.5, 2.0)
+                    'mean': np.random.uniform(2, 8),
+                    'std': np.random.uniform(0.5, 2.0)
                 }
             else:
-                mean = self.rng.uniform(2, 8, n_products)
-                A = self.rng.randn(n_products, n_products)
+                mean = np.random.uniform(2, 8, n_products)
+                A = np.random.randn(n_products, n_products)
                 cov = np.dot(A, A.T) + np.eye(n_products) * 0.5
                 dist = {'mean': mean, 'cov': cov}
             self.interval_distributions.append(dist)
@@ -100,10 +67,10 @@ class SlightlyNonStationaryEnvironment(PricingEnvironment):
         dist_params = self.interval_distributions[interval_idx]
         
         if self.n_products == 1:
-            valuation = self.rng.normal(dist_params['mean'], dist_params['std'])
+            valuation = np.random.normal(dist_params['mean'], dist_params['std'])
             return np.array([max(0, valuation)])
         else:
-            valuations = self.rng.multivariate_normal(
+            valuations = np.random.multivariate_normal(
                 dist_params['mean'], dist_params['cov']
             )
             return np.maximum(0, valuations) 

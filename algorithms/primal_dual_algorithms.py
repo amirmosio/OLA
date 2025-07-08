@@ -5,8 +5,8 @@ from typing import List, Dict, Tuple, Optional
 class PrimalDualSingleProduct(PricingAlgorithm):
     """Primal-dual algorithm for single product (best-of-both-worlds)"""
     
-    def __init__(self, prices: List[float], T: int, B: int, eta: float = None, seed: int = None):
-        super().__init__(prices, 1, T, B, seed)
+    def __init__(self, prices: List[float], T: int, B: int, eta: float = None):
+        super().__init__(prices, 1, T, B)
         self.eta = eta if eta else min(0.1, np.sqrt(np.log(len(prices)) / T))
         self.lambda_t = 0  # Dual variable for budget constraint
         self.log_weights = np.zeros(self.n_prices)  # Use log weights for stability
@@ -49,8 +49,8 @@ class PrimalDualSingleProduct(PricingAlgorithm):
         probabilities = np.clip(probabilities, 1e-10, 1.0)
         probabilities /= np.sum(probabilities)
         
-        # Sample price according to probabilities using seeded RNG
-        price_idx = self.rng.choice(self.n_prices, p=probabilities)
+        # Sample price according to probabilities
+        price_idx = np.random.choice(self.n_prices, p=probabilities)
         
         selected_prices = np.zeros(self.n_products)
         selected_prices[0] = self.prices[price_idx]
@@ -78,21 +78,12 @@ class PrimalDualSingleProduct(PricingAlgorithm):
         self.log_weights = np.clip(self.log_weights, -50.0, 50.0)
         
         self.current_round += 1
-        
-    def reset(self):
-        """Reset algorithm to initial state"""
-        super().reset()
-        self.lambda_t = 0
-        self.log_weights = np.zeros(self.n_prices)
-        self.counts = np.zeros(self.n_prices)
-        self.total_consumption = np.zeros(self.n_prices)
-        self.c_hat = np.zeros(self.n_prices)
 
 class PrimalDualMultiProduct(PricingAlgorithm):
     """Primal-dual algorithm for multiple products"""
     
-    def __init__(self, prices: List[float], n_products: int, T: int, B: int, eta: float = None, seed: int = None):
-        super().__init__(prices, n_products, T, B, seed)
+    def __init__(self, prices: List[float], n_products: int, T: int, B: int, eta: float = None):
+        super().__init__(prices, n_products, T, B)
         self.eta = eta if eta else min(0.1, np.sqrt(np.log(len(prices)) / T))
         self.lambda_t = 0
         # Separate log weights for each product for numerical stability
@@ -137,8 +128,8 @@ class PrimalDualMultiProduct(PricingAlgorithm):
             probabilities = np.clip(probabilities, 1e-10, 1.0)
             probabilities /= np.sum(probabilities)
             
-            # Sample price for product i using seeded RNG
-            price_idx = self.rng.choice(self.n_prices, p=probabilities)
+            # Sample price for product i
+            price_idx = np.random.choice(self.n_prices, p=probabilities)
             selected_prices[i] = self.prices[price_idx]
         
         return selected_prices
@@ -168,13 +159,4 @@ class PrimalDualMultiProduct(PricingAlgorithm):
         # Prevent log weights from growing too large
         self.log_weights = np.clip(self.log_weights, -50.0, 50.0)
         
-        self.current_round += 1
-        
-    def reset(self):
-        """Reset algorithm to initial state"""
-        super().reset()
-        self.lambda_t = 0
-        self.log_weights = np.zeros((self.n_products, self.n_prices))
-        self.counts = np.zeros((self.n_products, self.n_prices))
-        self.total_consumption = np.zeros((self.n_products, self.n_prices))
-        self.c_hat = np.zeros((self.n_products, self.n_prices)) 
+        self.current_round += 1 
