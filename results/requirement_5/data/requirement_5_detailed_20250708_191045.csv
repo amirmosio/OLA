@@ -1,7 +1,0 @@
-Environment,Algorithm,Run,Total_Revenue,Rounds_Completed,Final_Budget
-Slightly Non-Stationary,Combinatorial UCB (Sliding Window),1,1457.00,313,0.0
-Slightly Non-Stationary,Combinatorial UCB (Sliding Window),2,1537.00,318,0.0
-Slightly Non-Stationary,Combinatorial UCB (Sliding Window),3,1579.00,332,-1.0
-Slightly Non-Stationary,Primal-Dual Multi,1,2579.00,666,0.0
-Slightly Non-Stationary,Primal-Dual Multi,2,2629.00,694,-1.0
-Slightly Non-Stationary,Primal-Dual Multi,3,2628.00,708,-1.0

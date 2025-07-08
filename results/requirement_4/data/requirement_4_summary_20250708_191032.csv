@@ -1,5 +1,0 @@
-Environment,Algorithm,Avg_Revenue,Std_Revenue,Avg_Regret,Avg_Rounds,Avg_Budget_Used
-Stochastic Multi,Combinatorial UCB,1951.33,46.78,0.00,520.0,0.0
-Stochastic Multi,Primal-Dual Multi,2368.33,255.76,0.00,1000.0,88.0
-Non-Stationary Multi,Combinatorial UCB,1820.00,11.34,0.00,956.3,-1.0
-Non-Stationary Multi,Primal-Dual Multi,2722.67,68.67,0.00,460.0,-0.3
