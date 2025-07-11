@@ -7,6 +7,13 @@
 
 A comprehensive implementation of **online learning algorithms for dynamic pricing** under production constraints, developed for the Online Learning Applications course. This project addresses the fundamental problem of **revenue optimization** when a company must learn optimal pricing strategies while managing limited inventory and facing customers with unknown valuation distributions.
 
+**Group Members:**
+ - Hamidreza Saffari
+ - Amirhossein Mohsen Nezhad Baravati
+ - Morteza Kazemi
+ - Seyed Taha Mousavi
+
+
 ## 🎯 Project Overview
 
 ### Problem Statement
